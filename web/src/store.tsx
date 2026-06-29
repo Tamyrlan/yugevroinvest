@@ -53,17 +53,8 @@ interface StoreValue {
 const StoreContext = createContext<StoreValue | null>(null);
 
 export function StoreProvider({ children }: { children: ReactNode }) {
-  const [items, setItems] = useState<CartItem[]>(() => {
-    if (typeof window === "undefined") return [];
-    try {
-      return JSON.parse(localStorage.getItem("yei_cart") || "[]");
-    } catch {
-      return [];
-    }
-  });
-  const [city, setCityState] = useState<string>(
-    () => typeof window === "undefined" ? "Алматы" : localStorage.getItem("yei_city") || "Алматы"
-  );
+  const [items, setItems] = useState<CartItem[]>([]);
+  const [city, setCityState] = useState<string>("Алматы");
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [modal, setModal] = useState<ModalType>(null);
   const [productModal, setProductModal] = useState<ProductModalState | null>(
@@ -77,6 +68,23 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       localStorage.setItem("yei_cart", JSON.stringify(items));
     }
   }, [items]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const savedCart = localStorage.getItem("yei_cart");
+        if (savedCart) {
+          setItems(JSON.parse(savedCart));
+        }
+        const savedCity = localStorage.getItem("yei_city");
+        if (savedCity) {
+          setCityState(savedCity);
+        }
+      } catch {
+        // Ignore errors
+      }
+    }
+  }, []);
 
   const setCity = useCallback((c: string) => {
     setCityState(c);
