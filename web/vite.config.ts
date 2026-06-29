@@ -10,10 +10,4 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  define: {
-    'typeof window': '"undefined"',
-  },
-  ssr: {
-    noExternal: [],
-  },
 });
