@@ -34,21 +34,14 @@ export interface Category {
 }
 
 const IMG = {
-  metalloprokat:
-    "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=900&q=80",
-  sortovoy:
-    "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=900&q=80",
-  listovoy:
-    "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=900&q=80",
-  nerzh:
-    "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=900&q=80",
-  metizy:
-    "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&w=900&q=80",
-  truby:
-    "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=80",
-  cvetnoy:
-    "https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?auto=format&fit=crop&w=900&q=80",
-  krw: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80",
+  metalloprokat: "/images/metalloprocat.jpg",
+  sortovoy: "/images/sortovoy.jpg",
+  listovoy: "/images/listovoy.jpg",
+  nerzh: "/images/nerjaveuchayastal.jpg",
+  metizy: "/images/metizy.jpg",
+  truby: "/images/truby.jpg",
+  cvetnoy: "/images/7.webp",
+  krw: "/images/KRW.jpg",
 };
 
 export const CATEGORIES: Category[] = [
